@@ -1,16 +1,34 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 import { services } from '@/shared/constants/';
+
+const hovered = ref<number | null>(null);
+
+const setHovered = (i: number) => {
+  hovered.value = i;
+};
+
+const clearHovered = () => {
+  hovered.value = null;
+};
 </script>
 
 <template>
   <div class="services" id="services">
     <h3>Наши услуги</h3>
     <div class="services__content">
-      <div v-for="(service, index) in services" :key="index" class="services__content--item">
+      <div v-for="(service, index) in services" :key="index" class="services__content--item"
+        @mouseover="setHovered(index)" @mouseleave="clearHovered">
         <div>
-          <component :is="service.icon" :size="45" />
+          <component :is="hovered === index && service.iconAnim
+              ? service.iconAnim
+              : service.icon
+            " :size="45" />
+
           <span class="font-bold text-xl">{{ service.title }}</span>
         </div>
+
         <p>{{ service.description }}</p>
       </div>
     </div>
@@ -40,14 +58,18 @@ import { services } from '@/shared/constants/';
     gap: 30px;
 
     &--item {
+      cursor: pointer;
+
       display: flex;
       flex-direction: column;
       align-items: start;
       gap: 10px;
       padding: 10px;
       border-radius: 10px;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      background-color: rgba(255, 255, 255, 0.6);
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 
       transition: all 0.3s ease;
 
@@ -70,7 +92,7 @@ import { services } from '@/shared/constants/';
 
       &:hover {
         scale: 1.05;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
       }
     }
   }

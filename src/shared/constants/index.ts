@@ -13,13 +13,19 @@ import {
   HeartCrack,
   HousePlus,
   HeartHandshake,
-  LockKeyholeOpen
+  LockKeyholeOpen,
+  LockKeyhole,
+  HandCoins,
+  Aperture,
+  Handshake,
+  Mic
 } from 'lucide-vue-next';
 
 interface Service {
   title: string;
   description: string;
   icon: any;
+  iconAnim?: any;
 }
 
 export const services: Service[] = [
@@ -27,47 +33,54 @@ export const services: Service[] = [
     title: 'Экономическая безопасность',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: Coins
+    icon: Coins,
+    iconAnim: HandCoins
   },
   {
     title: 'Личная безопасность',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: User
+    icon: User,
+    iconAnim: UserRound
   },
   {
     title: 'Глонасс, тахограф',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: MapPinHouse
+    icon: MapPinHouse,
+    iconAnim: HousePlus
   },
   {
     title: 'Видеонаблюдение с ИИ',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: Cctv
+    icon: Cctv,
+    iconAnim: Aperture
   },
   {
     title: 'Детектор ЛЖИ',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: Radar
+    icon: Radar,
+    iconAnim: Handshake
   },
   {
     title: 'Проверка помещений на предмет прослушки',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: CassetteTape
+    icon: Mic,
+    iconAnim: CassetteTape
   },
   {
     title: 'Вскрытие замков',
     description: 'text',
-    icon: LockKeyholeOpen
+    icon: LockKeyhole,
+    iconAnim: LockKeyholeOpen
   }
 ];
 
 export const links: {title: string; path: string}[] = [
-  {title: 'О нас', path: '/about'},
+  {title: 'О нас', path: '#about'},
   {title: 'Услуги', path: '#services'},
   {title: 'Контакты', path: '#contacts'}
 ];

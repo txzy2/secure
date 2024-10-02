@@ -3,7 +3,7 @@ import { Motion } from '@oku-ui/motion';
 </script>
 
 <template>
-  <div class="about">
+  <div class="about" id="about">
     <div class="about--line"></div>
 
     <div class="about__text">
@@ -20,7 +20,7 @@ import { Motion } from '@oku-ui/motion';
         :exit="{ opacity: 0 }" :transition="{ duration: 1, delay: 0.5 }">
         <p class="about__content--item-number">01</p>
         <div class="about__content--item-text">
-          <h3>Индивидуальный подход к каждому клиенту</h3>
+          <h3>Индивидуальный подход</h3>
           <p>
             Мы понимаем, что каждая ситуация уникальна, поэтому предлагаем
             персонализированные решения для обеспечения безопасности с учётом
@@ -86,6 +86,7 @@ import { Motion } from '@oku-ui/motion';
     h2 {
       font-size: 30px;
       text-align: center;
+      font-weight: 600;
     }
 
     p {
@@ -128,7 +129,7 @@ import { Motion } from '@oku-ui/motion';
         gap: 3px;
 
         h3 {
-          font-size: 16px;
+          font-size: 20px;
           font-weight: 600;
 
           text-align: start;

@@ -150,8 +150,6 @@ const sections = ref(text);
     &__btns {
       &--item {
         font-size: 14px;
-
-        padding: 5px 30px;
       }
     }
 

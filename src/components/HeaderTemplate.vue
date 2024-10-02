@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router';
-import { ref } from 'vue';
 import { Menu } from 'lucide-vue-next';
 
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { links } from '@/shared/constants/';
 
-const open = ref(false);
+import {
+  Sheet,
+  SheetContent,
+  SheetClose,
+  SheetTrigger
+} from '@/components/ui/sheet';
 </script>
 
 <template>
@@ -23,19 +26,22 @@ const open = ref(false);
       </ul>
     </nav>
 
-    <Popover>
-      <PopoverTrigger id="popover" @click="() => (open = !open)">
+    <Sheet>
+      <SheetTrigger id="popover" as-child>
         <Menu :size="30" />
-      </PopoverTrigger>
+      </SheetTrigger>
 
-      <PopoverContent v-if="open" class="me-3 w-[200px] h-[30vh] bg-white shadow-lg">
-        <ul>
-          <li v-for="(link, index) in links" :key="index" class="mt-2">
-            <RouterLink :to="link.path">{{ link.title }}</RouterLink>
+      <SheetContent class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]">
+        <img src="/logo.svg" width="180" alt="" />
+        <ul class="text-[20px] font-bold">
+          <li v-for="(link, index) in links" :key="index" class="mt-4">
+            <SheetClose as-child>
+              <a :href="link.path">{{ link.title }}</a>
+            </SheetClose>
           </li>
         </ul>
-      </PopoverContent>
-    </Popover>
+      </SheetContent>
+    </Sheet>
   </header>
 </template>
 
@@ -78,6 +84,15 @@ header {
 }
 
 @media (max-width: 921px) {
+  header {
+    height: 10vh;
+    padding: 0 20px;
+
+    img {
+      display: none;
+    }
+  }
+
   nav {
     display: none !important;
   }

@@ -74,7 +74,7 @@ onMounted(() => {
     div span {
       margin: 0 auto;
 
-      font-size: 24px;
+      font-size: 28px;
       text-align: center;
     }
   }
