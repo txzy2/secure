@@ -66,10 +66,10 @@ export const services: Service[] = [
   }
 ];
 
-export const links: { title: string; path: string }[] = [
-  { title: 'О нас', path: '/about' },
-  { title: 'Услуги', path: '#services' },
-  { title: 'Контакты', path: '#contacts' }
+export const links: {title: string; path: string}[] = [
+  {title: 'О нас', path: '/about'},
+  {title: 'Услуги', path: '#services'},
+  {title: 'Контакты', path: '#contacts'}
 ];
 
 export const sections: Service[] = [

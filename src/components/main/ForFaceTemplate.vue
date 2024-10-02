@@ -56,6 +56,7 @@ const sections = ref(text);
 <style scoped lang="scss">
 .switcher {
   width: 75%;
+
   display: flex;
   flex-direction: column;
 
@@ -143,6 +144,11 @@ const sections = ref(text);
 
 @media (max-width: 921px) {
   .switcher {
+    &__btns {
+      &--item {
+        font-size: 14px;
+      }
+    }
 
     &__ur,
     &__fiz {

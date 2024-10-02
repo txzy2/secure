@@ -9,7 +9,7 @@ import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/niyaz-security/',
+  // base: '/secure/',
   server: {
     port: 4000
   },

@@ -6,7 +6,7 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
   <footer class="flex flex-col items-center justify-center mt-20" id="contacts">
     <div class="w-[60%] flex items-center justify-center gap-20 p-5 bg-white rounded-lg shadow-lg">
       <div class="w-[25%] flex items-center gap-5 m-auto">
-        <MapPin :color="'red'" :size="35" />
+        <MapPin :color="'red'" :size="35" class="icon" />
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Адрес</p>
@@ -16,7 +16,7 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
       </div>
 
       <div class="w-[25%] flex items-center gap-5">
-        <Mailbox :color="'red'" :size="30" />
+        <Mailbox :color="'red'" :size="30" class="icon" />
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Почтвый ящик</p>
@@ -26,7 +26,7 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
       </div>
 
       <div class="w-[25%] flex items-center gap-5">
-        <PhoneIncoming :color="'red'" :size="30" />
+        <PhoneIncoming :color="'red'" :size="30" class="icon" />
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Телефон</p>
@@ -37,3 +37,19 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
     </div>
   </footer>
 </template>
+
+<style scoped lang="scss">
+@media (max-width: 992px) {
+  footer div {
+    width: 100%;
+    gap: 10px;
+    font-size: 12px;
+
+    line-height: 1;
+  }
+
+  .icon {
+    width: 20px;
+  }
+}
+</style>
