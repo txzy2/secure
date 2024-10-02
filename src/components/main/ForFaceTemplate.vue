@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Motion } from '@oku-ui/motion';
 
 import { sections as text, servicesFiz as fiz } from '@/shared/constants/';
 
@@ -144,9 +145,13 @@ const sections = ref(text);
 
 @media (max-width: 921px) {
   .switcher {
+    width: 90%;
+
     &__btns {
       &--item {
         font-size: 14px;
+
+        padding: 5px 30px;
       }
     }
 
@@ -155,6 +160,12 @@ const sections = ref(text);
       display: grid;
       width: 90%;
       grid-template-columns: repeat(1, 1fr);
+
+      margin: 0 auto;
+
+      &--item {
+        height: 300px;
+      }
     }
   }
 }

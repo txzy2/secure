@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import {ref, onMounted} from 'vue';
-import {RouterView} from 'vue-router';
-import {ArrowUpToLine} from 'lucide-vue-next';
+import { ref, onMounted } from 'vue';
+import { RouterView } from 'vue-router';
+import { ArrowUpToLine } from 'lucide-vue-next';
 
-import {Header} from '@/components';
+import { Header } from '@/components';
 
 const loading = ref<boolean>(true);
 
 const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 onMounted(() => {
@@ -27,12 +27,36 @@ onMounted(() => {
 
   <RouterView />
 
-  <button
-    class="fixed bottom-10 right-20 p-2 bg-red-400 rounded-lg hover:scale-[1.1]"
-    @click="scrollToTop()"
-  >
+  <button class="btn" @click="scrollToTop()">
     <ArrowUpToLine :color="'#fff'" />
   </button>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.btn {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+
+  padding: 10px;
+
+  background: #d64949;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 992px) {
+  .btn {
+    bottom: 100px;
+  }
+}
+</style>
