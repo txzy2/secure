@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { RouterView } from 'vue-router';
-import { ArrowUpToLine } from 'lucide-vue-next';
+import { ChevronsUp } from 'lucide-vue-next';
 
 import { Header } from '@/components';
 
@@ -28,29 +28,32 @@ onMounted(() => {
   <RouterView />
 
   <button class="btn" @click="scrollToTop()">
-    <ArrowUpToLine :color="'#fff'" />
+    <ChevronsUp :size="35" />
   </button>
 </template>
 
 <style scoped lang="scss">
 .btn {
   position: fixed;
-  bottom: 40px;
+  bottom: 50%;
   right: 20px;
+
+  transform: translateY(50%);
 
   padding: 10px;
 
-  background: #d64949;
+  color: #d64949;
+  outline: none;
+  border: none;
 
   border-radius: 10px;
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
   transition: all 0.5s ease;
 
   &:hover {
-    scale: 1.1;
+    scale: 1.15;
   }
 }
 

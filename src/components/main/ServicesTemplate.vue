@@ -104,8 +104,7 @@ onMounted(() => {
       border-radius: 10px;
 
       background-color: rgba(255, 255, 255, 0.6);
-
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
       transition: all 0.3s ease;
 

@@ -115,6 +115,8 @@ import { Motion } from '@oku-ui/motion';
       border-radius: 10px;
 
       &-number {
+        text-align: center;
+
         color: rgb(209, 209, 209);
 
         font-size: 50px;
@@ -129,16 +131,21 @@ import { Motion } from '@oku-ui/motion';
         gap: 3px;
 
         h3 {
+          width: max-content;
+
+          text-align: start;
+          padding: 2px 5px;
+
           font-size: 20px;
           font-weight: 600;
 
-          text-align: start;
+          border-radius: 10px;
         }
 
         p {
-          font-size: 14px;
-
           text-align: start;
+          font-weight: 500;
+          font-size: 14px;
         }
       }
     }

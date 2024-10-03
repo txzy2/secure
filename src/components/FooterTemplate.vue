@@ -11,7 +11,9 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
         <div class="flex flex-col items-start">
           <p class="font-bold">Адрес</p>
 
-          <span>г. Йошкар-Ола, ул. Ленина, д. 1</span>
+          <a href="https://yandex.ru/maps/?l=map&text=г.%20Йошкар-Ола,%20ул.%20Ленина,%20д.%201г" target="_blank">
+            г. Йошкар-Ола, ул. Ленина, д. 1г
+          </a>
         </div>
       </div>
 
@@ -21,7 +23,7 @@ import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
         <div class="flex flex-col items-start">
           <p class="font-bold">Почтвый ящик</p>
 
-          <span>info@info.ru</span>
+          <a href="mailto:info@info.ru">info@info.ru</a>
         </div>
       </div>
 
