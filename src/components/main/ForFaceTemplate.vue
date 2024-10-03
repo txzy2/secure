@@ -1,6 +1,7 @@
+<!-- TODO: Сделать адаптив под 1200 - сделать больше высоту для карточки -->
+
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Motion } from '@oku-ui/motion';
 
 import { sections as text, servicesFiz as fiz } from '@/shared/constants/';
 
@@ -143,7 +144,7 @@ const sections = ref(text);
     color 0.3s ease;
 }
 
-@media (max-width: 921px) {
+@media (max-width: 1200px) {
   .switcher {
     width: 90%;
 
@@ -155,14 +156,32 @@ const sections = ref(text);
 
     &__ur,
     &__fiz {
+      &--item {
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 921px) {
+  .switcher {
+    &__btns {
+      &--item {
+        padding: 10px 45px;
+        font-size: 12px;
+      }
+    }
+
+    &__ur,
+    &__fiz {
       display: grid;
-      width: 90%;
+      width: 100%;
       grid-template-columns: repeat(1, 1fr);
 
       margin: 0 auto;
 
       &--item {
-        height: 300px;
+        height: 250px;
       }
     }
   }
