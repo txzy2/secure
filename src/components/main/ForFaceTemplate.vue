@@ -167,7 +167,7 @@ const sections = ref(text);
   .switcher {
     &__btns {
       &--item {
-        padding: 10px 45px;
+        padding: 10px 40px;
         font-size: 12px;
       }
     }

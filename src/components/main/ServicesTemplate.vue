@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { Motion } from '@oku-ui/motion';
 
 import { services } from '@/shared/constants/';
 
 const hovered = ref<number | null>(null);
+const isVisible = ref<boolean[]>([]);
 
 const setHovered = (i: number) => {
   hovered.value = i;
@@ -13,6 +14,29 @@ const setHovered = (i: number) => {
 const clearHovered = () => {
   hovered.value = null;
 };
+
+onMounted(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const index = Number((entry.target as HTMLElement).dataset.index);
+      if (entry.isIntersecting) {
+        isVisible.value[index] = true;
+      }
+    });
+  });
+
+  const elements = document.querySelectorAll<HTMLElement>(
+    '.services__content--item'
+  );
+  elements.forEach((el, index) => {
+    el.dataset.index = index.toString();
+    observer.observe(el);
+  });
+
+  onUnmounted(() => {
+    observer.disconnect();
+  });
+});
 </script>
 
 <template>
@@ -20,11 +44,11 @@ const clearHovered = () => {
     <h3>Наши услуги</h3>
     <div class="services__content">
       <div v-for="(service, index) in services" :key="index" @mouseover="setHovered(index)" @mouseleave="clearHovered">
-        <Motion class="services__content--item" :initial="{ scale: 1 }" :animate="{ scale: [1, 1.05, 1] }" :transition="{
-          duration: 6,
-          repeat: Infinity,
-          delay: index
-        }">
+        <Motion class="services__content--item" :initial="{ y: 0, opacity: 0 }" :animate="isVisible[index] ? { y: [0, -20, 0], opacity: 1 } : { y: 0, opacity: 0 }
+          " :transition="{
+            duration: 1,
+            delay: index * 0.2
+          }">
           <div>
             <component :is="hovered === index && service.iconAnim
                 ? service.iconAnim
@@ -45,16 +69,20 @@ const clearHovered = () => {
 .services {
   width: 100%;
 
+  // height: 90vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
 
   gap: 20px;
 
   h3 {
     font-size: 30px;
     font-weight: 600;
+
+    margin-bottom: 50px;
   }
 
   &__content {
