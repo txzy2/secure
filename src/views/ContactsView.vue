@@ -1,13 +1,8 @@
-<template>
-  <div class="contacts">
-    <Footer class="w-full" />
-    <div id="map" class="map"></div>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import {onMounted} from 'vue';
-import Footer from '@/components/FooterTemplate.vue';
+import {Footer} from '@/components/';
+
+declare const ymaps: any;
 
 onMounted(() => {
   ymaps.ready(initMap);
@@ -26,6 +21,13 @@ onMounted(() => {
   }
 });
 </script>
+
+<template>
+  <div class="contacts">
+    <Footer class="w-full" />
+    <div id="map" class="map"></div>
+  </div>
+</template>
 
 <style scoped>
 .contacts {

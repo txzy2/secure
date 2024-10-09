@@ -35,7 +35,14 @@ const isContactsPage = computed(() => route.path === '/contacts');
     <nav v-if="!isContactsPage">
       <ul v-for="(link, index) in links" :key="index">
         <li>
-          <a :href="link.path">{{ link.title }}</a>
+          <!-- <a :href="link.path">{{ link.title }}</a> -->
+          <RouterLink
+            :to="{
+              path: link.path,
+              hash: link.title === 'Услуги' ? '#services' : ''
+            }"
+            >{{ link.title }}</RouterLink
+          >
         </li>
       </ul>
     </nav>

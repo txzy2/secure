@@ -76,7 +76,7 @@ export const services: Service[] = [
 
 export const links: {title: string; path: string}[] = [
   {title: 'Услуги', path: '#services'},
-  {title: 'Контакты', path: '/contacts'}
+  {title: 'Контакты', path: '/secure/contacts'}
 ];
 
 export const sections: Service[] = [
