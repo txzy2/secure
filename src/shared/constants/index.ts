@@ -31,6 +31,7 @@ interface Service {
 export const services: Service[] = [
   {
     title: 'Экономическая безопасность',
+
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
     icon: Coins,

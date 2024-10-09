@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { MapPin, Mailbox, PhoneIncoming } from 'lucide-vue-next';
+import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
 </script>
 
 <template>
   <footer class="flex flex-col items-center justify-center mt-20" id="contacts">
-    <div class="w-[60%] flex items-center justify-center gap-20 p-5 bg-white rounded-lg shadow-lg">
+    <div
+      class="w-[60%] flex items-center justify-center gap-20 p-5 bg-white rounded-lg shadow-lg"
+    >
       <div class="w-[25%] flex items-center gap-5 m-auto">
         <MapPin :color="'red'" :size="35" class="icon" />
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Адрес</p>
 
-          <a href="https://yandex.ru/maps/?l=map&text=г.%20Йошкар-Ола,%20ул.%20Ленина,%20д.%201г" target="_blank">
+          <a
+            href="https://yandex.ru/maps/?l=map&text=г.%20Йошкар-Ола,%20ул.%20Ленина,%20д.%201г"
+            target="_blank"
+          >
             г. Йошкар-Ола, ул. Ленина, д. 1г
           </a>
         </div>

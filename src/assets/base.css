@@ -19,7 +19,8 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
-  --color-bg: linear-gradient(120deg, #ff4141 20%, #ffffff 50%);
+  /* --color-bg: linear-gradient(120deg, #ff4141 20%, #ffffff 50%); */
+  --color-bg: linear-gradient(110deg, #ff5151 20%, #ffffff 50%, #ff4141 80%);
   /* --color-bg: linear-gradient(120deg, #ff4141 20%, #fffdd0 50%);  */
   --color-header: #ffdfd4;
 }
