@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { RouterLink } from 'vue-router';
-import { Menu } from 'lucide-vue-next';
+import {RouterLink, useRoute} from 'vue-router';
+import {Menu} from 'lucide-vue-next';
 
-import { links } from '@/shared/constants/';
+import {links} from '@/shared/constants/';
 
 import {
   Sheet,
@@ -10,6 +10,11 @@ import {
   SheetClose,
   SheetTrigger
 } from '@/components/ui/sheet';
+import {computed} from 'vue';
+
+const route = useRoute();
+
+const isContactsPage = computed(() => route.path === '/contacts');
 </script>
 
 <template>
@@ -18,10 +23,27 @@ import {
       <img src="/logo.svg" width="120px" alt="" />
     </RouterLink>
 
-    <nav>
+    <marquee
+      behavior="scroll"
+      direction="left"
+      scrollamount="15"
+      class="w-[60%] text-[24px] italic"
+    >
+      Экономическая безопасность города! Вы ставите задачу мы её решаем!
+    </marquee>
+
+    <nav v-if="!isContactsPage">
       <ul v-for="(link, index) in links" :key="index">
         <li>
           <a :href="link.path">{{ link.title }}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav v-else>
+      <ul class="me-20 font-bold">
+        <li>
+          <a href="/">О нас</a>
         </li>
       </ul>
     </nav>
@@ -31,7 +53,9 @@ import {
         <Menu :size="30" />
       </SheetTrigger>
 
-      <SheetContent class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]">
+      <SheetContent
+        class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]"
+      >
         <img src="/logo.svg" width="180" alt="" />
         <ul class="text-[20px] font-bold">
           <li v-for="(link, index) in links" :key="index" class="mt-4">
@@ -80,6 +104,16 @@ header {
 
   #popover {
     display: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
   }
 }
 

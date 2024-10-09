@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import { Motion } from '@oku-ui/motion';
+import {ref, onMounted, onUnmounted} from 'vue';
+import {Motion} from '@oku-ui/motion';
 
-import { services } from '@/shared/constants/';
+import {services} from '@/shared/constants/';
 
 const hovered = ref<number | null>(null);
 const isVisible = ref<boolean[]>([]);
@@ -43,22 +43,37 @@ onMounted(() => {
   <div class="services" id="services">
     <h3>Наши услуги</h3>
     <div class="services__content">
-      <div v-for="(service, index) in services" :key="index" @mouseover="setHovered(index)" @mouseleave="clearHovered">
-        <Motion class="services__content--item" :initial="{ y: 0, opacity: 0 }" :animate="isVisible[index] ? { y: [0, -20, 0], opacity: 1 } : { y: 0, opacity: 0 }
-          " :transition="{
+      <div
+        v-for="(service, index) in services"
+        :key="index"
+        @mouseover="setHovered(index)"
+        @mouseleave="clearHovered"
+      >
+        <Motion
+          class="services__content--item"
+          :initial="{y: 0, opacity: 0}"
+          :animate="
+            isVisible[index] ? {y: [0, -20, 0], opacity: 1} : {y: 0, opacity: 0}
+          "
+          :transition="{
             duration: 1,
             delay: index * 0.2
-          }">
-          <div>
-            <component :is="hovered === index && service.iconAnim
-                ? service.iconAnim
-                : service.icon
-              " :size="45" />
+          }"
+        >
+          <div class="flex flex-col gap-1">
+            <component
+              :is="
+                hovered === index && service.iconAnim
+                  ? service.iconAnim
+                  : service.icon
+              "
+              :size="45"
+            />
 
             <span class="font-bold text-xl">{{ service.title }}</span>
           </div>
 
-          <p>{{ service.description }}</p>
+          <p v-html="service.description"></p>
         </Motion>
       </div>
     </div>
@@ -75,7 +90,6 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   // justify-content: center;
-
   gap: 20px;
 
   h3 {
@@ -88,13 +102,13 @@ onMounted(() => {
   &__content {
     width: 75%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 
     &--item {
       cursor: pointer;
 
-      height: 250px;
+      height: 400px;
 
       display: flex;
       flex-direction: column;
@@ -108,12 +122,12 @@ onMounted(() => {
 
       transition: all 0.3s ease;
 
-      div {
-        display: flex;
-        flex-direction: column;
+      // div {
+      //   display: flex;
+      //   flex-direction: column;
 
-        gap: 5px;
-      }
+      //   gap: 5px;
+      // }
 
       h3 {
         font-size: 20px;
@@ -122,8 +136,9 @@ onMounted(() => {
 
       p {
         width: 100%;
-        font-size: 14px;
-        line-height: 1.2;
+
+        font-size: 15px;
+        line-height: 1.5;
       }
 
       &:hover {

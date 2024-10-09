@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Motion } from '@oku-ui/motion';
+import {Motion} from '@oku-ui/motion';
 </script>
 
 <template>
@@ -11,26 +11,37 @@ import { Motion } from '@oku-ui/motion';
       <p>
         Агентство безопасности "Защитник" универсальная организация с самым
         широким спектром услуг! Вы ставите задачу, мы её решаем! Сегодня Вам не
-        нужна безопасность, завтра может быть поздно!
+        нужна безопасность, завтра может быть поздно! Работая с Защитником вся
+        полученная информация будет строго конфиденциальна.
       </p>
     </div>
 
     <div class="about__content">
-      <Motion class="about__content--item" :initial="{ opacity: 0, scale: 0 }" :animate="{ opacity: 1, scale: 1 }"
-        :exit="{ opacity: 0 }" :transition="{ duration: 1, delay: 0.5 }">
+      <Motion
+        class="about__content--item"
+        :initial="{opacity: 0, scale: 0}"
+        :animate="{opacity: 1, scale: 1}"
+        :exit="{opacity: 0}"
+        :transition="{duration: 1, delay: 0.5}"
+      >
         <p class="about__content--item-number">01</p>
         <div class="about__content--item-text">
           <h3>Индивидуальный подход</h3>
           <p>
-            Мы понимаем, что каждая ситуация уникальна, поэтому предлагаем
-            персонализированные решения для обеспечения безопасности с учётом
-            всех ваших потребностей и особенностей
+            Каждая ситуация уникальна, поэтому мы предлагаем персонализированные
+            решения для обеспечения безопасности с учётом всех ваших
+            потребностей и особенностей
           </p>
         </div>
       </Motion>
 
-      <Motion class="about__content--item" :initial="{ opacity: 0, scale: 0 }" :animate="{ opacity: 1, scale: 1 }"
-        :exit="{ opacity: 0 }" :transition="{ duration: 1, delay: 1 }">
+      <Motion
+        class="about__content--item"
+        :initial="{opacity: 0, scale: 0}"
+        :animate="{opacity: 1, scale: 1}"
+        :exit="{opacity: 0}"
+        :transition="{duration: 1, delay: 1}"
+      >
         <p class="about__content--item-number">02</p>
         <div class="about__content--item-text">
           <h3>Большой спектор услуг</h3>
@@ -42,8 +53,13 @@ import { Motion } from '@oku-ui/motion';
         </div>
       </Motion>
 
-      <Motion class="about__content--item" :initial="{ opacity: 0, scale: 0 }" :animate="{ opacity: 1, scale: 1 }"
-        :exit="{ opacity: 0 }" :transition="{ duration: 1, delay: 1.5 }">
+      <Motion
+        class="about__content--item"
+        :initial="{opacity: 0, scale: 0}"
+        :animate="{opacity: 1, scale: 1}"
+        :exit="{opacity: 0}"
+        :transition="{duration: 1, delay: 1.5}"
+      >
         <p class="about__content--item-number">03</p>
         <div class="about__content--item-text">
           <h3>Надежность</h3>
@@ -63,8 +79,6 @@ import { Motion } from '@oku-ui/motion';
 
   display: flex;
   flex-direction: column;
-
-  margin: 40px 0;
 
   &--line {
     width: 200px;
@@ -91,7 +105,7 @@ import { Motion } from '@oku-ui/motion';
 
     p {
       width: 70%;
-      font-size: 16px;
+      font-size: 14px;
 
       text-align: center;
 
@@ -103,7 +117,7 @@ import { Motion } from '@oku-ui/motion';
     width: 90%;
     display: flex;
 
-    margin: 00 auto;
+    margin: 0 auto;
 
     &--item {
       width: 90%;

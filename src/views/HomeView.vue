@@ -10,5 +10,5 @@ import {Main, Footer} from '@/components';
     <!-- <RouterLink class="underline" to="/about">About</RouterLink> -->
   </main>
 
-  <Footer />
+  <Footer class="w-[75%] mt-20 m-auto" />
 </template>

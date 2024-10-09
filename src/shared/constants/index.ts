@@ -18,12 +18,13 @@ import {
   HandCoins,
   Aperture,
   Handshake,
-  Mic
+  Mic,
+  UserPen
 } from 'lucide-vue-next';
 
 interface Service {
   title: string;
-  description: string;
+  description: HTMLAreaElement | string;
   icon: any;
   iconAnim?: any;
 }
@@ -31,59 +32,51 @@ interface Service {
 export const services: Service[] = [
   {
     title: 'Экономическая безопасность',
-
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
+      '- Обеспечение устойчивости предприятия предотвращение хищений, мошенничества и утечек информации.<br/>- Оценка угроз, разработка мер по снижению рисков.<br/>- Взаимодействие с правоохранительными органами, защита данных, контроль финансов, обеспечение прозрачности сделок, защита активов;<br/>- Mониторинг законодательства и рынка;<br/> - Консультирование по экономической безопасности.<br/>Пришел. Изучил. Изменил. Сэкономил',
     icon: Coins,
     iconAnim: HandCoins
   },
   {
     title: 'Личная безопасность',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
+      '<span class="font-bold italic">Личная безопасность</span> - это достаточно широкий комплекс мер, которые направлены на защиту жизни и здоровья человека. В это понятие включены меры по предотвращению, выявлению и нейтрализации рисков, а также по устранению их последствий.',
     icon: User,
     iconAnim: UserRound
   },
   {
-    title: 'Глонасс, тахограф',
+    title: 'Глонасс, тахограф. Видеонаблюдение с ИИ',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
+      'Системы ГЛОНАСС, тахографа и видеонаблюдения - важные инструменты для контроля и мониторинга транспорта и помещений,Они позволяют отслеживать местоположение, контролировать рабочее время водителей и предотвращать нарушения законодательства, что улучшает эффективность работы и снижает затраты',
     icon: MapPinHouse,
     iconAnim: HousePlus
   },
   {
-    title: 'Видеонаблюдение с ИИ',
-    description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
-    icon: Cctv,
-    iconAnim: Aperture
-  },
-  {
     title: 'Детектор ЛЖИ',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
+      '<span class="font-bold italic">Детектор лжи</span> — важный инструмент для проверки достоверности информации. Его использование может помочь выявить ложь в ключевых вопросах, будь то при приеме на работу, в деловых переговорах или в судебных разбирательствах, что повышает доверие и уверенность в принятии решений.',
     icon: Radar,
     iconAnim: Handshake
   },
   {
     title: 'Проверка помещений на предмет прослушки',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus et soluta atque! Praesentium, corrupti cum ea qui, itaque odit harum corporis, sed doloribus suscipit amet recusandae autem nostrum repellat minus.',
+      'Проверим Ваш офис, квартиру, машину на предмет установки  жучков и скрытых видео камер. Единственный способ точно определить наличие прослушивающих приборов – анализ радиочастотного спектра.Изменения радиочастотного спектра, показываемые специальными приборами, свидетельствуют о наличии закладок, заглушек, трекеров, жучков, камер, диктофонов.',
     icon: Mic,
     iconAnim: CassetteTape
   },
   {
     title: 'Вскрытие замков',
-    description: 'text',
+    description:
+      'Замена, вырезка и ремонт замков.<br/>Аварийное вскрытие закмков любой сложности:<br/>- Квартиры<br/>- Машины</br>- Сейфы<br/>- Гаражи',
     icon: LockKeyhole,
     iconAnim: LockKeyholeOpen
   }
 ];
 
 export const links: {title: string; path: string}[] = [
-  {title: 'О нас', path: '#about'},
   {title: 'Услуги', path: '#services'},
-  {title: 'Контакты', path: '#contacts'}
+  {title: 'Контакты', path: '/contacts'}
 ];
 
 export const sections: Service[] = [
@@ -116,6 +109,11 @@ export const sections: Service[] = [
     description:
       'Наши специалисты помогут быстро и эффективно расследовать случаи краж, хищений, а также "откатных" схем, сохраняя при этом конфиденциальность процесса',
     icon: Fingerprint
+  },
+  {
+    title: 'Юридические консультации',
+    description: 'text',
+    icon: UserPen
   }
 ];
 

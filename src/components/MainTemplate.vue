@@ -11,7 +11,7 @@ const typedElement = ref<HTMLElement | null>(null);
 onMounted(() => {
   if (typedElement.value) {
     const options = {
-      strings: ['Вы ставите задачу, мы её решаем!'],
+      strings: ['Экономическая защита города!'],
       typeSpeed: 50,
       backSpeed: 25,
       loop: false
@@ -31,7 +31,7 @@ onMounted(() => {
         :exit="{rotateY: 360}"
         :transition="{duration: 4}"
       >
-        <img src="/logo.svg" width="550" alt="logo" />
+        <img src="/logo.svg" width="450" alt="logo" />
       </Motion>
 
       <h1 class="typed-text" ref="typedElement"></h1>
@@ -74,7 +74,7 @@ onMounted(() => {
   .typed-text {
     width: 50%;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 70px;
     text-align: left;
   }
 }
