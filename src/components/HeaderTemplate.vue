@@ -35,25 +35,15 @@ const isContactsPage = computed(() => route.path === '/contacts');
     <nav v-if="!isContactsPage">
       <ul v-for="(link, index) in links" :key="index">
         <li>
-          <!-- <a :href="link.path">{{ link.title }}</a> -->
-          <RouterLink
-            :to="{
-              path: link.path,
-              hash: link.title === 'Услуги' ? '#services' : ''
-            }"
-            >{{ link.title }}</RouterLink
-          >
+          <a v-if="link.title === 'Услуги'" :href="link.path">{{
+            link.title
+          }}</a>
+          <RouterLink v-else :to="link.path">{{ link.title }}</RouterLink>
         </li>
       </ul>
     </nav>
 
-    <nav v-else>
-      <ul class="me-20 font-bold">
-        <li>
-          <a href="/">О нас</a>
-        </li>
-      </ul>
-    </nav>
+    <RouterLink v-else class="home__link" to="/">О нас</RouterLink>
 
     <Sheet>
       <SheetTrigger id="popover" as-child>
@@ -106,6 +96,19 @@ header {
 
         font-weight: bold;
       }
+    }
+  }
+
+  .home__link {
+    margin-right: 40px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      scale: 1.05;
+
+      text-decoration: underline;
     }
   }
 
