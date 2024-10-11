@@ -2,7 +2,6 @@ import {
   Coins,
   User,
   MapPinHouse,
-  Cctv,
   CassetteTape,
   Radar,
   Search,
@@ -16,7 +15,6 @@ import {
   LockKeyholeOpen,
   LockKeyhole,
   HandCoins,
-  Aperture,
   Handshake,
   Mic,
   UserPen
@@ -28,6 +26,11 @@ interface Service {
   icon: any;
   iconAnim?: any;
 }
+
+export const links: {title: string; path: string}[] = [
+  {title: 'Услуги', path: '#services'},
+  {title: 'Контакты', path: '/contacts'}
+];
 
 export const services: Service[] = [
   {
@@ -72,11 +75,6 @@ export const services: Service[] = [
     icon: LockKeyhole,
     iconAnim: LockKeyholeOpen
   }
-];
-
-export const links: {title: string; path: string}[] = [
-  {title: 'Услуги', path: '#services'},
-  {title: 'Контакты', path: '/contacts'}
 ];
 
 export const sections: Service[] = [

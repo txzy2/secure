@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import {onMounted} from 'vue';
+import {Motion} from '@oku-ui/motion';
+
 import {Footer} from '@/components/';
 
 declare const ymaps: any;
@@ -24,7 +26,14 @@ onMounted(() => {
 
 <template>
   <div class="contacts">
-    <Footer class="w-full" />
+    <Motion
+      :initial="{opacity: 0, y: -100}"
+      :animate="{opacity: 1, y: 0}"
+      :transition="{duration: 2}"
+    >
+      <Footer class="w-full" />
+    </Motion>
+
     <div id="map" class="map"></div>
   </div>
 </template>
@@ -33,13 +42,11 @@ onMounted(() => {
 .contacts {
   width: 80%;
   height: 85vh;
+
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
 
   margin: 0 auto;
-
   gap: 10px;
 }
 

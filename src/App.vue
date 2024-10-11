@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import {ref, onMounted} from 'vue';
-import {RouterView} from 'vue-router';
+import {RouterView, useRoute} from 'vue-router';
 import {ChevronsUp, ChevronsDown} from 'lucide-vue-next';
 
 import {Header} from '@/components';
-
 import {links} from '@/shared/constants/';
 
 const loading = ref<boolean>(true);
+const route = useRoute();
 
 const scrollToTop = () => {
   window.scrollTo({top: 0, behavior: 'smooth'});
@@ -46,7 +46,7 @@ onMounted(() => {
 
   <RouterView />
 
-  <div class="btn">
+  <div class="btn" v-if="route.path === '/'">
     <button @click="scrollToTop()">
       <ChevronsUp :size="35" />
     </button>
