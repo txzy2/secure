@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import { ref } from 'vue';
 
-import {sections as text, servicesFiz as fiz} from '@/shared/constants/';
+import { sections as text, servicesFiz as fiz } from '@/shared/constants/';
 
 const selectItem = ref<'fiz' | 'yur'>('fiz');
 const sections = ref(text);
@@ -10,19 +10,11 @@ const sections = ref(text);
 <template>
   <div class="switcher">
     <div class="switcher__btns">
-      <button
-        class="switcher__btns--item"
-        @click="selectItem = 'yur'"
-        :class="{selected: selectItem === 'yur'}"
-      >
+      <button class="switcher__btns--item" @click="selectItem = 'yur'" :class="{ selected: selectItem === 'yur' }">
         Юридические лица
       </button>
 
-      <button
-        class="switcher__btns--item"
-        @click="selectItem = 'fiz'"
-        :class="{selected: selectItem === 'fiz'}"
-      >
+      <button class="switcher__btns--item" @click="selectItem = 'fiz'" :class="{ selected: selectItem === 'fiz' }">
         Физические лица
       </button>
     </div>
@@ -30,17 +22,9 @@ const sections = ref(text);
     <div class="switcher__content">
       <div v-if="selectItem === 'fiz'" class="">
         <div class="switcher__fiz">
-          <div
-            v-for="(item, i) in fiz"
-            :key="i"
-            class="switcher__ur--item h-[250px] group"
-          >
+          <div v-for="(item, i) in fiz" :key="i" class="switcher__ur--item h-[250px] group">
             <div class="flex flex-col gap-1">
-              <component
-                :is="item.icon"
-                :size="45"
-                class="transform transition-transform group-hover:-rotate-45"
-              />
+              <component :is="item.icon" :size="45" class="transform transition-transform group-hover:-rotate-45" />
               <h3 class="font-bold">{{ item.title }}</h3>
             </div>
 
@@ -52,22 +36,15 @@ const sections = ref(text);
       <div v-else class="switcher__content--ur">
         <div class="switcher__content--ur__items">
           <div class="switcher__ur">
-            <div
-              v-for="(section, i) in sections"
-              :key="i"
-              class="switcher__ur--item h-[250px] group"
-            >
+            <div v-for="(section, i) in sections" :key="i" class="switcher__ur--item h-[250px] group">
               <div class="flex flex-col gap-1">
-                <component
-                  :is="section.icon"
-                  :size="45"
-                  class="transform transition-transform group-hover:-rotate-45"
-                />
+                <component :is="section.icon" :size="45"
+                  class="transform transition-transform group-hover:-rotate-45" />
 
                 <h3>{{ section.title }}</h3>
               </div>
 
-              <p class="w-full">{{ section.description }}</p>
+              <p v-html="section.description" class="w-full"></p>
             </div>
           </div>
         </div>

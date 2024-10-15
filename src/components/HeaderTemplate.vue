@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import {RouterLink, useRoute} from 'vue-router';
-import {Menu} from 'lucide-vue-next';
+import { RouterLink, useRoute } from 'vue-router';
+import { Menu } from 'lucide-vue-next';
 
-import {links} from '@/shared/constants/';
+import { links } from '@/shared/constants/';
 
 import {
   Sheet,
@@ -10,7 +10,7 @@ import {
   SheetClose,
   SheetTrigger
 } from '@/components/ui/sheet';
-import {computed} from 'vue';
+import { computed } from 'vue';
 
 const route = useRoute();
 
@@ -23,22 +23,17 @@ const isContactsPage = computed(() => route.path === '/contacts');
       <img src="/logo.svg" width="120px" alt="" />
     </RouterLink>
 
-    <marquee
-      behavior="scroll"
-      direction="left"
-      scrollamount="15"
-      class="w-[60%] text-[24px] italic"
-    >
+    <marquee behavior="scroll" direction="left" scrollamount="15" class="w-[60%] text-[22px] italic">
       Экономическая безопасность города! Вы ставите задачу мы её решаем!
     </marquee>
 
     <nav v-if="!isContactsPage">
       <ul v-for="(link, index) in links" :key="index">
         <li>
-          <a v-if="link.title === 'Услуги'" :href="link.path">{{
+          <a class="text-[18px] font-semibold" v-if="link.title === 'Услуги'" :href="link.path">{{
             link.title
           }}</a>
-          <RouterLink v-else :to="link.path">{{ link.title }}</RouterLink>
+          <RouterLink v-else class="text-[18px] font-semibold" :to="link.path">{{ link.title }}</RouterLink>
         </li>
       </ul>
     </nav>
@@ -50,9 +45,7 @@ const isContactsPage = computed(() => route.path === '/contacts');
         <Menu :size="30" />
       </SheetTrigger>
 
-      <SheetContent
-        class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]"
-      >
+      <SheetContent class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]">
         <img src="/logo.svg" width="180" alt="" />
         <ul class="text-[20px] font-bold">
           <li v-for="(link, index) in links" :key="index" class="mt-4">
@@ -91,10 +84,7 @@ header {
 
       &:hover {
         scale: 1.05;
-
         text-decoration: underline;
-
-        font-weight: bold;
       }
     }
   }

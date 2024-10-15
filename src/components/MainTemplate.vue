@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue';
+import { onMounted, ref } from 'vue';
 
-import {Motion} from '@oku-ui/motion';
+import { Motion } from '@oku-ui/motion';
 import Typed from 'typed.js';
 
-import {Services, About, ForFace} from '@/components';
+import { Services, About, ForFace } from '@/components';
 
 const typedElement = ref<HTMLElement | null>(null);
 
 onMounted(() => {
   if (typedElement.value) {
     const options = {
-      strings: ['Экономическая защита города!'],
+      strings: ['Экономическая безопасность города'],
       typeSpeed: 50,
       backSpeed: 25,
       loop: false
@@ -25,24 +25,15 @@ onMounted(() => {
 <template>
   <div class="main">
     <div class="main__title">
-      <Motion
-        :initial="{rotateY: 360}"
-        :animate="{rotateY: 0}"
-        :exit="{rotateY: 360}"
-        :transition="{duration: 4}"
-      >
+      <Motion :initial="{ rotateY: 360 }" :animate="{ rotateY: 0 }" :exit="{ rotateY: 360 }" :transition="{ duration: 4 }">
         <img src="/logo.svg" width="450" alt="logo" />
       </Motion>
 
       <h1 class="typed-text" ref="typedElement"></h1>
     </div>
 
-    <Motion
-      :initial="{opacity: 0, y: 100}"
-      :animate="{opacity: 1, y: 0}"
-      :exit="{opacity: 0}"
-      :transition="{duration: 2}"
-    >
+    <Motion :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" :exit="{ opacity: 0 }"
+      :transition="{ duration: 2 }">
       <About />
     </Motion>
 
