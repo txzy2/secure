@@ -1,30 +1,40 @@
 <script setup lang="ts">
-import {ref, onMounted} from 'vue';
-import {RouterView, useRoute} from 'vue-router';
-import {ChevronsUp, ChevronsDown} from 'lucide-vue-next';
+import { ref, onMounted } from 'vue';
+import { RouterView, useRoute } from 'vue-router';
+import { ChevronsUp, ChevronsDown } from 'lucide-vue-next';
 
-import {Header} from '@/components';
-import {links} from '@/shared/constants/';
+import { Header } from '@/components';
+import { links } from '@/shared/constants/';
 
 const loading = ref<boolean>(true);
 const route = useRoute();
 
-const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: 'smooth'});
-};
-
 let currentIndex = 0;
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  currentIndex = 0;
+};
+
+
 const scrollToNext = () => {
-  if (currentIndex < links.length) {
+  console.log(currentIndex);
+  if (currentIndex < links.length - 1) {
+
     const item = links[currentIndex];
 
-    const element = document.querySelector(item.path);
-    if (element) {
-      element.scrollIntoView({behavior: 'smooth'});
+    if (item.path !== '/contacts') {
+      const element = document.querySelector(item.path);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      currentIndex++;
+
+      if (currentIndex === 2) currentIndex = 0;
     }
 
-    currentIndex++;
   } else {
     currentIndex = 0;
   }

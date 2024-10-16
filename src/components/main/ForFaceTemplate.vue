@@ -8,7 +8,7 @@ const sections = ref(text);
 </script>
 
 <template>
-  <div class="switcher">
+  <div class="switcher" id="forface">
     <div class="switcher__btns">
       <button class="switcher__btns--item" @click="selectItem = 'yur'" :class="{ selected: selectItem === 'yur' }">
         Юридические лица
@@ -143,6 +143,27 @@ const sections = ref(text);
     color 0.3s ease;
 }
 
+@media (max-width: 1600px) {
+
+  .switcher {
+    width: 90%;
+
+    &__btns {
+      &--item {
+        font-size: 14px;
+      }
+    }
+
+    &__ur,
+    &__fiz {
+      &--item {
+        height: 250px;
+      }
+    }
+
+  }
+}
+
 @media (max-width: 1200px) {
   .switcher {
     width: 90%;
@@ -159,6 +180,7 @@ const sections = ref(text);
         height: 300px;
       }
     }
+
   }
 }
 
@@ -180,8 +202,9 @@ const sections = ref(text);
       margin: 0 auto;
 
       &--item {
-        height: 250px;
+        height: auto;
       }
+
     }
   }
 }

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import {onMounted} from 'vue';
-import {Motion} from '@oku-ui/motion';
+import { onMounted } from 'vue';
+import { Motion } from '@oku-ui/motion';
 
-import {Footer} from '@/components/';
+import { Footer } from '@/components/';
 
 declare const ymaps: any;
 
@@ -26,11 +26,7 @@ onMounted(() => {
 
 <template>
   <div class="contacts">
-    <Motion
-      :initial="{opacity: 0, y: -100}"
-      :animate="{opacity: 1, y: 0}"
-      :transition="{duration: 2}"
-    >
+    <Motion :initial="{ opacity: 0, y: -100 }" :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 2 }">
       <Footer class="w-full" />
     </Motion>
 
@@ -40,8 +36,8 @@ onMounted(() => {
 
 <style scoped>
 .contacts {
-  width: 80%;
-  height: 85vh;
+  width: 90%;
+  height: 90vh;
 
   display: flex;
   flex-direction: column;

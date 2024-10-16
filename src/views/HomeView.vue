@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {Motion} from '@oku-ui/motion';
+import { Motion } from '@oku-ui/motion';
 
-import {Main, Footer} from '@/components';
+import { Main, Footer } from '@/components';
 </script>
 
 <template>
@@ -10,5 +10,13 @@ import {Main, Footer} from '@/components';
     <!-- <RouterLink class="underline" to="/about">About</RouterLink> -->
   </main>
 
-  <Footer class="w-[75%] mt-20 m-auto" />
+  <Footer class="w-[75%] mt-20 m-auto footer" />
 </template>
+
+<style scoped lang="scss">
+@media (max-width: 992px) {
+  .footer {
+    width: 95%;
+  }
+}
+</style>
