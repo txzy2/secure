@@ -49,7 +49,7 @@ import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
 <style scoped lang="scss">
 @media (max-width: 992px) {
   footer div {
-    width: 100%;
+    width: 95%;
 
     gap: 5px;
     font-size: 12px;
