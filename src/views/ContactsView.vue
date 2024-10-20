@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import { Motion } from '@oku-ui/motion';
+import {onMounted} from 'vue';
+import {Motion} from '@oku-ui/motion';
 
-import { Footer } from '@/components/';
+import {Footer} from '@/components/';
 
 declare const ymaps: any;
 
@@ -11,11 +11,11 @@ onMounted(() => {
 
   function initMap() {
     const map = new ymaps.Map('map', {
-      center: [56.631347, 47.889466],
-      zoom: 17
+      center: [56.646826, 47.900875],
+      zoom: 16
     });
 
-    const placemark = new ymaps.Placemark([56.63183, 47.88719], {
+    const placemark = new ymaps.Placemark([56.646826, 47.900875], {
       hintContent: 'Защитник'
     });
 
@@ -26,7 +26,11 @@ onMounted(() => {
 
 <template>
   <div class="contacts">
-    <Motion :initial="{ opacity: 0, y: -100 }" :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 2 }">
+    <Motion
+      :initial="{opacity: 0, y: -100}"
+      :animate="{opacity: 1, y: 0}"
+      :transition="{duration: 2}"
+    >
       <Footer class="w-full" />
     </Motion>
 

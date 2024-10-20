@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { RouterView, useRoute } from 'vue-router';
-import { ChevronsUp, ChevronsDown } from 'lucide-vue-next';
+import {ref, onMounted} from 'vue';
+import {RouterView, useRoute} from 'vue-router';
+import {ChevronsUp, ChevronsDown} from 'lucide-vue-next';
 
-import { Header } from '@/components';
-import { links } from '@/shared/constants/';
+import {Header} from '@/components';
+import {links} from '@/shared/constants/';
 
 const loading = ref<boolean>(true);
 const route = useRoute();
@@ -12,29 +12,26 @@ const route = useRoute();
 let currentIndex = 0;
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top: 0, behavior: 'smooth'});
 
   currentIndex = 0;
 };
 
-
 const scrollToNext = () => {
   console.log(currentIndex);
   if (currentIndex < links.length - 1) {
-
     const item = links[currentIndex];
 
     if (item.path !== '/contacts') {
       const element = document.querySelector(item.path);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({behavior: 'smooth'});
       }
 
       currentIndex++;
 
       if (currentIndex === 2) currentIndex = 0;
     }
-
   } else {
     currentIndex = 0;
   }
@@ -101,7 +98,7 @@ onMounted(() => {
 
 @media (max-width: 992px) {
   .btn {
-    bottom: 100px;
+    bottom: 180px;
   }
 }
 </style>
