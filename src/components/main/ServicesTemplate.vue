@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import { Motion } from '@oku-ui/motion';
+import {ref, onMounted, onUnmounted} from 'vue';
+import {Motion} from '@oku-ui/motion';
 
-import { services } from '@/shared/constants/';
+import {services} from '@/shared/constants/';
 
 const hovered = ref<number | null>(null);
 const isVisible = ref<boolean[]>([]);
@@ -43,17 +43,32 @@ onMounted(() => {
   <div class="services" id="services">
     <h3>Наши услуги</h3>
     <div class="services__content">
-      <div v-for="(service, index) in services" :key="index" @mouseover="setHovered(index)" @mouseleave="clearHovered">
-        <Motion class="services__content--item" :initial="{ y: 0, opacity: 0 }" :animate="isVisible[index] ? { y: [0, -20, 0], opacity: 1 } : { y: 0, opacity: 0 }
-          " :transition="{
+      <div
+        v-for="(service, index) in services"
+        :key="index"
+        @mouseover="setHovered(index)"
+        @mouseleave="clearHovered"
+      >
+        <Motion
+          class="services__content--item"
+          :initial="{y: 0, opacity: 0}"
+          :animate="
+            isVisible[index] ? {y: [0, -20, 0], opacity: 1} : {y: 0, opacity: 0}
+          "
+          :transition="{
             duration: 1,
             delay: index * 0.2
-          }">
+          }"
+        >
           <div class="flex flex-col gap-1">
-            <component :is="hovered === index && service.iconAnim
-              ? service.iconAnim
-              : service.icon
-              " :size="45" />
+            <component
+              :is="
+                hovered === index && service.iconAnim
+                  ? service.iconAnim
+                  : service.icon
+              "
+              :size="45"
+            />
 
             <span class="font-bold text-xl">{{ service.title }}</span>
           </div>
@@ -148,12 +163,14 @@ onMounted(() => {
 
 @media (max-width: 1200px) {
   .services {
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+    }
     &__content--item {
-      height: 500px;
+      height: 400px;
     }
   }
 }
-
 
 @media (max-width: 921px) {
   .services {

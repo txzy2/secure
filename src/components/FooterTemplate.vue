@@ -38,8 +38,6 @@ import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Телефон</p>
-
-          <a href="tel: 8939-722-4048">8 939-722-4048</a>
         </div>
       </div>
     </div>
@@ -47,20 +45,34 @@ import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
 </template>
 
 <style scoped lang="scss">
+@media (max-width: 1200px) {
+  footer {
+    width: 90%;
+  }
+}
+
 @media (max-width: 992px) {
   footer div {
-    width: 95%;
-
     gap: 5px;
     font-size: 12px;
 
     line-height: 1;
   }
+}
 
+@media (max-width: 768px) {
+  footer {
+    width: 100%;
+  }
   .footer {
+    max-width: 95%;
     flex-direction: column;
 
     gap: 10px;
+
+    div {
+      width: 100%;
+    }
   }
 }
 </style>
