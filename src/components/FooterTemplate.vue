@@ -38,6 +38,8 @@ import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
 
         <div class="flex flex-col items-start">
           <p class="font-bold">Телефон</p>
+
+          <a href="tel:+79397224048">+7 939 722 40 48</a>
         </div>
       </div>
     </div>
