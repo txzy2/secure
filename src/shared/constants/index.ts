@@ -29,7 +29,7 @@ interface Service {
 
 export const links: {title: string; path: string}[] = [
   {title: 'Услуги', path: '#services'},
-  {title: 'Для лиц', path: '#forface'},
+  {title: 'О нас', path: '/'},
   {title: 'Контакты', path: '/contacts'}
 ];
 

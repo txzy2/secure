@@ -60,8 +60,17 @@ const isContactsPage = computed(() => route.path === '/contacts');
                 :href="link.path === '#services' && isContactsPage ? '/' : link.path">{{
                   link.title
                 }}</a>
-              <RouterLink v-else-if="link.title === 'Контакты'" class="text-[18px] font-semibold" :to="link.path">{{
-                link.title }}</RouterLink>
+
+              <RouterLink v-else-if="link.title === 'Контакты' && !isContactsPage" class="text-[18px] font-semibold"
+                :to="link.path">{{
+                  link.title
+                }}</RouterLink>
+
+              <RouterLink v-else-if="link.title === 'О нас' && isContactsPage" class="text-[18px] font-semibold"
+                :to="link.path">{{
+                  link.title
+                }}</RouterLink>
+
             </SheetClose>
           </li>
         </ul>
