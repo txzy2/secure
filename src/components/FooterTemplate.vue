@@ -27,7 +27,7 @@ import {MapPin, Mailbox, PhoneIncoming} from 'lucide-vue-next';
         <Mailbox :color="'red'" :size="30" class="icon" />
 
         <div class="flex flex-col items-start">
-          <p class="font-bold">Почтвый ящик</p>
+          <p class="font-bold">Почтовый ящик</p>
 
           <a href="mailto:zashchitnik11@mail.ru">zashchitnik11@mail.ru</a>
         </div>

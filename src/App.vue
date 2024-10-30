@@ -18,11 +18,10 @@ const scrollToTop = () => {
 };
 
 const scrollToNext = () => {
-  console.log(currentIndex);
   if (currentIndex < links.length - 1) {
     const item = links[currentIndex];
 
-    if (item.path !== '/contacts') {
+    if (item.path !== '/contacts' && item.path !== '/') {
       const element = document.querySelector(item.path);
       if (element) {
         element.scrollIntoView({behavior: 'smooth'});

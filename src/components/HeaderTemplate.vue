@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { RouterLink, useRoute } from 'vue-router';
-import { Menu } from 'lucide-vue-next';
+import {RouterLink, useRoute} from 'vue-router';
+import {Menu} from 'lucide-vue-next';
 
-import { links } from '@/shared/constants/';
+import {links} from '@/shared/constants/';
 
 import {
   Sheet,
@@ -10,7 +10,7 @@ import {
   SheetClose,
   SheetTrigger
 } from '@/components/ui/sheet';
-import { computed } from 'vue';
+import {computed} from 'vue';
 
 const route = useRoute();
 
@@ -23,18 +23,31 @@ const isContactsPage = computed(() => route.path === '/contacts');
       <img src="/logo.svg" width="120px" alt="" />
     </RouterLink>
 
-    <marquee behavior="scroll" direction="left" id="marquee" scrollamount="15" class="w-[60%] text-[22px] italic ">
+    <marquee
+      behavior="scroll"
+      direction="left"
+      id="marquee"
+      scrollamount="15"
+      class="w-[60%] text-[22px] italic"
+    >
       Служба безопасности города! Вы ставите задачу мы её решаем!
     </marquee>
 
     <nav v-if="!isContactsPage">
       <ul v-for="(link, index) in links" :key="index">
-        <li>
-          <a class="text-[18px] font-semibold" v-if="link.title === 'Услуги'" :href="link.path">{{
-            link.title
-          }}</a>
-          <RouterLink v-else-if="link.title === 'Контакты'" class="text-[18px] font-semibold" :to="link.path">{{
-            link.title }}</RouterLink>
+        <li v-if="link.title !== 'Для лиц'">
+          <a
+            class="text-[18px] font-semibold"
+            v-if="link.title === 'Услуги'"
+            :href="link.path"
+            >{{ link.title }}</a
+          >
+          <RouterLink
+            v-else-if="link.title === 'Контакты'"
+            class="text-[18px] font-semibold"
+            :to="link.path"
+            >{{ link.title }}</RouterLink
+          >
         </li>
       </ul>
     </nav>
@@ -46,7 +59,9 @@ const isContactsPage = computed(() => route.path === '/contacts');
         <Menu :size="30" />
       </SheetTrigger>
 
-      <SheetContent class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]">
+      <SheetContent
+        class="w-full h-[100%] flex items-center justify-center shadow-lg rounded-[20px]"
+      >
         <SheetClose as-child>
           <RouterLink to="/">
             <img src="/logo.svg" width="180" alt="" />
@@ -56,21 +71,28 @@ const isContactsPage = computed(() => route.path === '/contacts');
         <ul class="text-[20px] font-bold">
           <li v-for="(link, index) in links" :key="index" class="mt-4">
             <SheetClose as-child>
-              <a class="text-[18px] font-semibold" v-if="link.title === 'Услуги'"
-                :href="link.path === '#services' && isContactsPage ? '/' : link.path">{{
-                  link.title
-                }}</a>
+              <a
+                class="text-[18px] font-semibold"
+                v-if="link.title === 'Услуги' && !isContactsPage"
+                :href="
+                  link.path === '#services' && isContactsPage ? '/' : link.path
+                "
+                >{{ link.title }}</a
+              >
 
-              <RouterLink v-else-if="link.title === 'Контакты' && !isContactsPage" class="text-[18px] font-semibold"
-                :to="link.path">{{
-                  link.title
-                }}</RouterLink>
+              <RouterLink
+                v-else-if="link.title === 'Контакты' && !isContactsPage"
+                class="text-[18px] font-semibold"
+                :to="link.path"
+                >{{ link.title }}</RouterLink
+              >
 
-              <RouterLink v-else-if="link.title === 'О нас' && isContactsPage" class="text-[18px] font-semibold"
-                :to="link.path">{{
-                  link.title
-                }}</RouterLink>
-
+              <RouterLink
+                v-else-if="link.title === 'О нас' && isContactsPage"
+                class="text-[18px] font-semibold"
+                :to="link.path"
+                >{{ link.title }}</RouterLink
+              >
             </SheetClose>
           </li>
         </ul>
@@ -145,7 +167,6 @@ header {
     img {
       display: none;
     }
-
   }
 
   .home__link {
@@ -155,7 +176,6 @@ header {
   #marquee {
     width: 90%;
   }
-
 
   nav {
     display: none !important;
